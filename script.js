@@ -1,7 +1,7 @@
 //console.log("Teste de log");
 lsUsuario = [];
 function gravarUsuario() {
-console.log("Dentro da função Gravar");
+console.log("Dentro da funcao Gravar");
 id = document.getElementById("id").value;
 nome = document.getElementById("nome").value;
 email = document.getElementById("email").value;
@@ -9,12 +9,12 @@ url = `nome=${nome}&email:${email}`;
 
   const xhttp = new XMLHttpRequest();
       if(id == ''){
-        xhttp.open("POST", "https://qua-209030paulovictor.herokuapp.com/demo/add?"+url);
+        xhttp.open("POST", "https://qua-209030paulovictor.herokuapp.com/demo/add?" +url);
       }else {
         xhttp.open("PUT", `https://qua-209030paulovictor.herokuapp.com/demo/update/${id}?${url}`);
       }
 
-  xhttp.open("POST", "https://qua-209030paulovictor.herokuapp.com/demo/add?"+url);
+  xhttp.open("POST", "https://qua-209030paulovictor.herokuapp.com/demo/add?" +url);
   xhttp.send();
   xhttp.onload = function() {
       alert(this.responseText);
@@ -44,7 +44,7 @@ function atualizarTabela() {
       for(i in lsUsuario){
          u = lsUsuario[i];
          //console.log(u);
-         texto += `<tr onclick='carregarUsuario(${i})'><td>${u.id}</td><td>${u.nome}</td><td>${u.email}</td></tr>`;
+         texto += `<tr onclick='alert(${i})'><td>${u.id}</td><td>${u.nome}</td><td>${u.email}</td></tr>`;
   }
   document.getElementById("tbCorpo").innerHTML = texto;
  }
