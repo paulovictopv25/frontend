@@ -1,11 +1,21 @@
 //console.log("Teste de log");
 lsUsuario = [];
 function gravarUsuario() {
-  console.log("Dentro da funcao Gravar");
+  //console.log("Dentro da funcao Gravar");
   id = document.getElementById("id").value;
   nome = document.getElementById("nome").value;
   email = document.getElementById("email").value;
   url = `nome=${nome}&email=${email}`;
+
+  if(nome.trim() == ''){
+      alert("Erro no preenchimento do Nome.");
+        return;
+  }
+
+  if(email.trim() == ''){
+    alert("Erro no preenchimento do E-mail.");
+      return;
+}
 
   const xhttp = new XMLHttpRequest();
   if (id == '') {
@@ -17,8 +27,10 @@ function gravarUsuario() {
 
   xhttp.send();
   xhttp.onload = function () {
-    alert(this.responseText);
+    msg = this.responseText;
+    alert(msg);
     atualizarTabela();
+    if(msg.substring(0,2) == 'Ok')
     limparCampos();
 
 
